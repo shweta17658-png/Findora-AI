@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Findora AI | School Lost and Found</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="brand">
+    <div class="findora-icon">
+    </div>
+    <h2>Findora AI</h2>
+</div>
+
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#report">Report Item</a>
+        <a href="#browse">Browse Items</a>
+        <a href="#teacher-login">Teacher Login</a>
+        <a href="#about">About</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="eyebrow">SCHOOL LOST AND FOUND SYSTEM</p>
+
+            <h1>Lost something?<br>
+                <span>Let's find it.</span>
+            </h1>
+
+            <p class="hero-description">
+                Findora AI is a simple platform that helps students
+                report lost belongings, find reported items and
+                reconnect with their belongings.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#report" class="primary-button">
+                    Report an Item
+                </a>
+                <a href="#browse" class="secondary-button">
+                    Browse Items
+                </a>
+            </div>
+
+        
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-card">
+                <p class="card-label">FINDORA AI</p>
+                <div class="card-line"></div>
+                <p class="card-footer">Report. Search. Reconnect.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="stats-section">
+        <div class="stat-card">
+            <h2 id="lostCount">0</h2>
+            <p>Lost Items</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="foundCount">0</h2>
+            <p>Found Items</p>
+        </div>
+
+        <div class="stat-card">
+            <h2 id="returnedCount">0</h2>
+            <p>Items Returned</p>
+        </div>
+    </section>
+
+    <!-- REPORT ITEM -->
+    <section class="section report-section" id="report">
+        <div class="section-heading">
+            <p class="eyebrow">SUBMIT A REPORT</p>
+            <h2>Report an Item</h2>
+            <p>Provide the details of your lost or found belonging.</p>
+        </div>
+
+        <div class="report-card">
+            <form id="itemForm">
+
+                <div class="form-group">
+                    <label for="itemType">What would you like to report?</label>
+                    <select id="itemType" required>
+                        <option value="">Select report type</option>
+                        <option value="Lost">I lost an item</option>
+                        <option value="Found">I found an item</option>
+                    </select>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="itemName">Item Name</label>
+                        <input type="text" id="itemName"
+                            placeholder="e.g. Blue water bottle" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemCategory">Category</label>
+                        <select id="itemCategory" required>
+                            <option value="">Select category</option>
+                            <option value="Stationery">Stationery</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Bags">Bags</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Water Bottles">Water Bottles</option>
+                            <option value="Books">Books</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemDescription">Description</label>
+                    <textarea id="itemDescription" rows="4"
+                        placeholder="Describe the colour, appearance or any identifying feature..."
+                        required></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="itemLocation">Location</label>
+                        <input type="text" id="itemLocation"
+                            placeholder="e.g. School library" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemDate">Date</label>
+                        <input type="date" id="itemDate" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemImage">Upload Item Photograph (Optional)</label>
+                    <input type="file" id="itemImage"
+                        accept="image/jpeg,image/png,image/webp">
+
+                    <small class="upload-help">
+                        JPG, PNG or WEBP. Maximum original file size: 5 MB.
+                    </small>
+
+                    <div id="imagePreview" class="image-preview" hidden>
+                        <img id="previewImage" alt="Selected item photo preview">
+                        <button type="button" id="removeImage"
+                            class="remove-image-button">
+                            Remove Photo
+                        </button>
+                    </div>
+                </div>
+
+                <p class="privacy-note">
+                    Please do not include personal phone numbers,
+                    email addresses, home addresses or photographs
+                    showing students' faces.
+                </p>
+
+                <button type="submit" class="primary-button full-button">
+                    Submit Report
+                </button>
+
+                <p id="formMessage" role="status" aria-live="polite"></p>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- BROWSE ITEMS -->
+    <section class="section browse-section" id="browse">
+        <div class="section-heading">
+            <p class="eyebrow">AVAILABLE REPORTS</p>
+            <h2>Browse Items</h2>
+            <p>Search through the lost and found reports submitted by students.</p>
+        </div>
+
+        <div class="browse-controls">
+            <input type="search" id="searchInput"
+                placeholder="Search by item, category or location...">
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="All">All Items</button>
+                <button class="filter-btn" data-filter="Lost">Lost</button>
+                <button class="filter-btn" data-filter="Found">Found</button>
+            </div>
+        </div>
+
+        <div id="itemsContainer" class="items-grid">
+            <div class="empty-state">
+                <h3>No items available yet</h3>
+                <p>New reports will appear here.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEACHER LOGIN -->
+    <section class="section teacher-login-section" id="teacher-login">
+        <div class="section-heading">
+            <p class="eyebrow">RESTRICTED ACCESS</p>
+            <h2>Teacher Login</h2>
+            <p>Authorised teachers can manage reports and return requests.</p>
+        </div>
+
+        <div class="report-card login-card">
+
+            <form id="teacherLoginForm">
+                <div class="form-group">
+                    <label for="teacherEmail">Teacher Email Address</label>
+                    <input type="email" id="teacherEmail"
+                        placeholder="Enter teacher email"
+                        autocomplete="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="teacherPassword">Password</label>
+                    <input type="password" id="teacherPassword"
+                        placeholder="Enter password"
+                        autocomplete="current-password" required>
+                </div>
+
+                <button type="submit" id="teacherLoginButton"
+                    class="primary-button full-button">
+                    Login
+                </button>
+
+                <p id="loginMessage" role="status" aria-live="polite"></p>
+            </form>
+
+            <div id="teacherSession" hidden>
+                <p class="completed-message">
+                    Teacher account signed in.
+                </p>
+
+                <button type="button" id="teacherLogoutButton"
+                    class="secondary-button full-button">
+                    Logout
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ADMIN DASHBOARD -->
+    <section class="section admin-section" id="admin"
+        hidden aria-hidden="true">
+
+        <div class="section-heading">
+            <p class="eyebrow">AUTHORISED TEACHER AREA</p>
+            <h2>Admin Dashboard</h2>
+            <p>Manage return requests and update item statuses.</p>
+        </div>
+
+        <div class="admin-warning">
+            <strong>Teacher access:</strong>
+            This section is intended for authorised teachers only.
+        </div>
+
+        <div class="admin-stats">
+            <div class="admin-stat">
+                <span>Pending Requests</span>
+                <strong id="pendingCount">0</strong>
+            </div>
+
+            <div class="admin-stat">
+                <span>Approved Requests</span>
+                <strong id="approvedCount">0</strong>
+            </div>
+
+            <div class="admin-stat">
+                <span>Returned Requests</span>
+                <strong id="adminReturnedCount">0</strong>
+            </div>
+        </div>
+
+        <div id="requestsContainer" class="requests-container">
+            <div class="empty-state">
+                <h3>No return requests yet</h3>
+                <p>Student requests will appear here.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+        <div class="about-content">
+            <p class="eyebrow">ABOUT THE PROJECT</p>
+            <h2>About Findora AI</h2>
+
+            <p>
+                Findora AI is a school Lost and Found website developed
+                to make reporting and recovering belongings easier.
+            </p>
+
+            <p>
+                The system uses keyword-based matching to identify
+                possible connections between lost and found reports.
+                Students can browse reports and submit return requests,
+                while authorised teachers manage the process.
+            </p>
+
+            <p>
+                The main aim is to reduce confusion, save time and
+                encourage students to take responsibility for their
+                belongings.
+            </p>
+        </div>
+
+        <div class="about-visual">
+            <div class="about-symbol">F</div>
+            <h3>Findora AI</h3>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <a href="#home" class="logo footer-logo">
+        <span class="logo-icon">F</span>
+        <span>Findora <span class="logo-ai">AI</span></span>
+    </a>
+
+    <p>A school Lost and Found project.</p>
+    <p class="copyright">
+        © 2026 Findora AI. Developed as a student project.
+    </p>
+</footer>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

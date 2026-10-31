@@ -1,0 +1,594 @@
+
+/* =====================================
+   FINDORA AI
+   Pastel, clean and realistic design
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #536b91;
+    --primary-dark: #394f73;
+    --background: #f0eff8;
+    --surface: #ffffff;
+    --text: #303746;
+    --muted: #737b8b;
+    --border: #e1e1eb;
+    --success: #56816b;
+    --warning: #aa8447;
+    --danger: #a65e65;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    width: 100%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 13px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* FINDORA LOGO */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.findora-icon {
+    width: 42px;
+    height: 42px;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.findora-icon::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 4px;
+    background: var(--primary);
+    right: -11px;
+    bottom: -5px;
+    transform: rotate(45deg);
+    border-radius: 3px;
+}
+
+.findora-icon span {
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.brand h2 {
+    font-size: 23px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    letter-spacing: -0.7px;
+    margin: 0;
+}
+
+/* NAVIGATION LINKS */
+
+.navbar a {
+    color: var(--muted);
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: var(--primary);
+}
+
+/* PAGE LAYOUT */
+
+.container,
+main {
+    width: min(1100px, 90%);
+    margin: 35px auto;
+}
+
+section {
+    margin-bottom: 35px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    background: #e7e6f3;
+    padding: 45px 35px;
+    border: 1px solid #dcdaeb;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: clamp(27px, 4vw, 38px);
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 600px;
+}
+
+/* HEADINGS */
+
+h2 {
+    font-size: 23px;
+    font-weight: 650;
+    margin-bottom: 18px;
+    color: var(--text);
+}
+
+h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* CARDS AND FORMS */
+
+.report-card,
+.card,
+.admin-section,
+.login-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 25px;
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #394951;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #d4d5e0;
+    border-radius: 6px;
+    background: #fff;
+    color: var(--text);
+    outline: none;
+    margin-bottom: 17px;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(83, 107, 145, 0.10);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* BUTTONS */
+
+button,
+.btn {
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: #fff;
+    padding: 10px 17px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    background: var(--primary-dark);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* SEARCH AND FILTERS */
+
+.search-box {
+    max-width: 500px;
+    margin-bottom: 18px;
+}
+
+.filter-btn {
+    background: #fff;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    margin: 0 7px 10px 0;
+    padding: 8px 14px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+/* ITEMS GRID */
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    gap: 18px;
+}
+
+.item-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.item-card:hover {
+    border-color: #aebbd0;
+}
+
+.item-card img,
+.item-photo {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+    display: block;
+    background: #eeedf5;
+}
+
+.item-card-content {
+    padding: 17px;
+}
+
+.item-card h3 {
+    color: var(--text);
+}
+
+.item-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+/* STATUS LABELS */
+
+.status,
+.badge {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    background: #edf0f4;
+    color: #52636d;
+}
+
+.status.available {
+    background: #e8f2ec;
+    color: var(--success);
+}
+
+.status.returned {
+    background: #edf0f5;
+    color: #536b83;
+}
+
+.status.pending {
+    background: #f7f0e4;
+    color: var(--warning);
+}
+
+/* STATISTICS */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.stat-card h3 {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.stat-card p,
+.stat-card .number {
+    color: var(--primary-dark);
+    font-size: 27px;
+    font-weight: 700;
+}
+
+/* ADMIN REQUESTS */
+
+.request-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 14px;
+}
+
+.request-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 5px 0;
+}
+
+.request-actions {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.request-actions button {
+    font-size: 13px;
+}
+
+.request-actions .reject,
+.delete-btn {
+    background: #fff;
+    color: var(--danger);
+    border-color: #d8b4b4;
+}
+
+.request-actions .reject:hover,
+.delete-btn:hover {
+    background: #f9eeee;
+}
+
+/* IMAGE PREVIEW */
+
+#imagePreview {
+    margin: 10px 0;
+}
+
+#previewImage {
+    max-width: 180px;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+/* MESSAGES */
+
+#formMessage,
+#loginMessage,
+.message {
+    font-size: 13px;
+    margin-top: 10px;
+    color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 22px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 45px;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 650px) {
+    .navbar {
+        padding: 13px 5%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .navbar a {
+        margin: 0 8px;
+    }
+
+    .container,
+    main {
+        width: 92%;
+        margin: 22px auto;
+    }
+
+    .hero {
+        padding: 28px 20px;
+    }
+
+    .report-card,
+    .card,
+    .admin-section,
+    .login-section {
+        padding: 18px;
+    }
+
+    .items-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.hero button,
+.hero .btn,
+.hero a {
+    margin-right: 12px;
+    margin-bottom: 10px;
+}
+.hero h1 strong {
+    font-weight: 700;
+    color: #394f73;
+}
+/* Keep homepage statistics in one line */
+
+/* Homepage statistics - horizontal layout */
+
+.stats-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 15px;
+    width: 100%;
+    align-items: stretch;
+}
+
+.stats-grid .stat-card {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    padding: 18px 10px;
+}
+@media (max-width: 500px) {
+    .stats-grid {
+        gap: 7px;
+    }
+
+    .stats-grid .stat-card {
+        padding: 12px 4px;
+    }
+
+    .stats-grid .stat-card h3 {
+        font-size: 10px;
+    }
+
+    .stats-grid .stat-card p,
+    .stats-grid .stat-card .number {
+        font-size: 19px;
+    }
+}
+/* HOMEPAGE STATISTICS - THREE CARDS IN ONE ROW */
+
+.stats-section {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    width: 100%;
+}
+
+.stats-section .stat-card {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    padding: 25px 15px;
+    background: #ffffff;
+    border: 1px solid #e1e1eb;
+    border-radius: 9px;
+}
+
+.stats-section .stat-card h2 {
+    font-size: 30px;
+    margin-bottom: 5px;
+    color: #394f73;
+}
+
+.stats-section .stat-card p {
+    font-size: 14px;
+    color: #737b8b;
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+    .stats-section {
+        gap: 8px;
+    }
+
+    .stats-section .stat-card {
+        padding: 15px 5px;
+    }
+
+    .stats-section .stat-card h2 {
+        font-size: 22px;
+    }
+
+    .stats-section .stat-card p {
+        font-size: 10px;
+    }
+}
+/* Highlight item status text */
+
+.item-card p {
+    font-weight: 500;
+}
+
+.item-card .lost {
+    color: #b34f5c;
+    font-weight: 700;
+}
+
+.item-card .found {
+    color: #43805a;
+    font-weight: 700;
+}
+
+.item-card .returned {
+    color: #53649b;
+    font-weight: 700;
+}
